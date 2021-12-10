@@ -1,0 +1,19 @@
+<mule xmlns="http://www.mulesoft.org/schema/mule/core"
+      xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+      xmlns:googlepubsub="http://www.mulesoft.org/schema/mule/googlepubsub"
+      xsi:schemaLocation="http://www.mulesoft.org/schema/mule/core http://www.mulesoft.org/schema/mule/core/current/mule.xsd
+          http://www.mulesoft.org/schema/mule/googlepubsub http://www.mulesoft.org/schema/mule/googlepubsub/current/mule-googlepubsub.xsd">
+
+    <googlepubsub:config name="config" configId="configId">
+        <googlepubsub:connection requiredParameter="aValue" />
+    </googlepubsub:config>
+
+    <flow name="sayHiFlow">
+        <googlepubsub:say-hi person="Mariano Gonzalez"/>
+    </flow>
+
+    <flow name="retrieveInfoFlow">
+        <googlepubsub:retrieve-info config-ref="config"/>
+    </flow>
+
+</mule>
